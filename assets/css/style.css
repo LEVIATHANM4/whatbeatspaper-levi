@@ -5,6 +5,7 @@ body {
   color: #cad3f5;
   font-family: "Sour Gummy", sans-serif;
   font-weight: 400;
+  overflow-x: hidden;
 }
 
 .whatbeats {
@@ -22,6 +23,7 @@ body {
   font-size: 50px;
   margin-top: 0;
   margin-bottom: 0px;
+  transition: 0.3s ease;
 }
 
 .emoji {
@@ -30,6 +32,23 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 0;
+  transition: transform 0.3s ease;
+}
+
+.loading-animation {
+  animation: pulse 1.2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .input {
@@ -42,6 +61,7 @@ body {
   transition: 0.3s;
   padding-left: 10px;
 }
+
 .input:hover {
   background-color: #6e738d;
   transition: 0.3s;
@@ -51,6 +71,12 @@ body {
   background-color: #6e738d;
   transition: 0.3s;
   outline: none;
+}
+
+.input:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background-color: #363a4f;
 }
 
 .submit {
@@ -67,4 +93,94 @@ body {
 .submit:hover {
   background-color: #5d8670;
   transition: 0.3s;
+}
+
+.submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background-color: #363a4f;
+}
+
+.red {
+  color: #ed8796;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.tryagain {
+  background-color: #494d64;
+  color: #cad3f5;
+  border: #363a4f 2px solid;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: 0.3s;
+  height: 6vh;
+  width: 40%;
+  font-size: 15px;
+}
+
+.tryagain:hover {
+  background-color: #363a4f;
+  transition: 0.3s;
+  transform: scale(1.1);
+}
+
+.gessedtext {
+  font-size: 20px;
+  margin-top: 0px;
+  margin-bottom: 0;
+}
+
+.green {
+  color: #a6da95;
+}
+
+.guessed {
+  font-size: 18px;
+  margin: 10px 0 20px 0;
+  color: #8087a2;
+}
+
+.progression {
+  font-size: 24px;
+  margin: 15px 0;
+  color: #8aadf4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0 20px;
+}
+
+.progression span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+@media (max-width: 768px) {
+  .whatbeats {
+    font-size: 60px;
+    text-align: center;
+  }
+
+  .item {
+    font-size: 40px;
+  }
+
+  .emoji {
+    font-size: 180px;
+  }
+
+  .input {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .progression {
+    font-size: 20px;
+  }
 }
