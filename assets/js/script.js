@@ -1,6 +1,7 @@
 const gameState = {
   progression: [],
   elements: {},
+  submittedInputs: new Set(),
 };
 
 function initializeElements() {
@@ -136,13 +137,16 @@ function submitHandler() {
 
   const validPattern = /^[A-Za-z\s]+$/;
   if (!validPattern.test(value)) {
-    alert(
-      "Input contains invalid characters. Only letters, numbers, hyphens, and underscores are allowed."
-    );
+    alert("just use letters and spaces nothing else");
     return;
   }
 
   if (value.trim() !== "") {
+    if (gameState.submittedInputs.has(value.toLowerCase())) {
+      alert("youve already submitted this think of somthing else");
+      return;
+    }
+    gameState.submittedInputs.add(value.toLowerCase());
     results(value, firstitem);
   }
 }
@@ -154,13 +158,16 @@ function keypressHandler(e) {
 
     const validPattern = /^[A-Za-z\s]+$/;
     if (!validPattern.test(value)) {
-      alert(
-        "Input contains invalid characters. Only letters, numbers, hyphens, and underscores are allowed."
-      );
+      alert("just use letters and spaces nothing else");
       return;
     }
 
     if (value.trim() !== "") {
+      if (gameState.submittedInputs.has(value.toLowerCase())) {
+        alert("youve already submitted this think of somthing else");
+        return;
+      }
+      gameState.submittedInputs.add(value.toLowerCase());
       results(value, firstitem);
     }
   }
