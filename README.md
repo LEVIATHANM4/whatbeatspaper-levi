@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://ai.ch3n.cc">
+  <a href="https://whatbeatspaper.ch3n.cc">
     <img src="https://cloud-wlorsfbd3-hack-club-bot.vercel.app/0what.png" alt="Logo" style='border-radius: 15px;'>
   </a>
 
@@ -13,7 +13,7 @@
     A fun LLM powerd game where you try to find an object that beats paper and so on!
     <br />
     <br />
-    <a href="https://ai.ch3n.cc">View Demo</a>
+    <a href="https://whatbeatspaper.ch3n.cc">View Demo</a>
     ·
     <a href="https://github.com/RedNotSus/whatbeatspaper/issues">Report Bug</a>
     ·
