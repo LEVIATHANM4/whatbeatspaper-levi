@@ -177,10 +177,58 @@ function attachEventListeners() {
   gameState.elements.submit.addEventListener("click", submitHandler);
   gameState.elements.input.addEventListener("keypress", keypressHandler);
 }
-
 document.addEventListener("DOMContentLoaded", function () {
   initializeElements();
   attachEventListeners();
+  document.addEventListener("keydown", function (e) {
+    if (
+      [
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+        "b",
+        "a",
+        "Control",
+        "Alt",
+        "Backspace",
+      ].includes(e.key) ||
+      e.metaKey
+    )
+      return;
+
+    gameState.elements.input.focus();
+  });
 });
 
 window.continueGame = continueGame;
+
+async function toggle() {
+  const item1 = gameState.elements.item1.textContent;
+  const item2 = gameState.elements.input.value;
+
+  if (!item1 || !item2) {
+    console.error("Both item1 and item2 must be provided.");
+    return;
+  }
+
+  try {
+    const response = await fetch(
+      `https://api.ch3n.cc/whatbeatspaper/compare/toggle?item1=${encodeURIComponent(
+        item1
+      )}&item2=${encodeURIComponent(item2)}`,
+      {
+        method: "POST",
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+
+    const data = await response.json();
+    console.log("Toggled result:", data);
+  } catch (error) {
+    console.error("Error toggling result:", error);
+  }
+}
